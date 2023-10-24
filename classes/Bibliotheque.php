@@ -3,8 +3,6 @@
 require_once 'Livre.php';
 
 class Bibliotheque {
-  public static $bookList = [];
-
   public static function addBook($book) {
     if (!isset($_SESSION['bookList'])) {
       $_SESSION['bookList'] = [];

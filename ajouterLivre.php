@@ -4,10 +4,7 @@ session_start();
 require_once 'classes/Livre.php';
 require_once 'classes/Bibliotheque.php';
 
-
-
 require_once('header.php');
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $book = new Livre(
