@@ -7,7 +7,6 @@ require_once('header.php');
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_isbn"])) {
     $isbnToDelete = $_POST["delete_isbn"];
     Bibliotheque::deleteBook($isbnToDelete);
-    // After deleting the book, you can reload the page or update the book list as needed.
 } else if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["isbn"])) {
   Bibliotheque::editBook(new Livre(
     $_POST["title"],

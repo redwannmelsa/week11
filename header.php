@@ -31,6 +31,18 @@
         <a class="nav-link" href="ajouterLivre.php">Ajouter un Livre</a>
       </li>
       <!-- Vous pouvez ajouter d'autres liens ici si nécessaire -->
+            <li class="nav-item">
+        <a class="nav-link" href="addUser.php">Ajouter un adhérent</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="listUsers.php">Liste adhérents</a>
+      </li>
+                  <li class="nav-item">
+        <a class="nav-link" href="borrow.php">Emprunt</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="listBorrow.php">Liste emprunts</a>
+      </li>
     </ul>
   </div>
 </nav>
