@@ -5,10 +5,10 @@ require_once 'classes/Livre.php';
 session_start();
 require_once('header.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete_borrow"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userId"])) {
     $BookList = $_SESSION['bookList'];
     foreach($BookList as $bookId => $book) {
-      if ($_POST["delete_borrow"] === $book->userBorrowing) {
+      if ($_POST["userId"] === $book->userBorrowing && $_POST["bookId"] == $bookId) {
         $book->return();
       }
     }
@@ -44,7 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["delete_borrow"])) {
                 echo '<td>' . date("d/m/Y", strtotime($book->dateBorrowed . " +7 days")) . '</td>';
                 echo '<td>
                   <form method="post">
-                      <input type="hidden" name="delete_borrow" value="' . $userId . '">
+                      <input type="hidden" name="userId" value="' . $userId . '">
+                      <input type="hidden" name="bookId" value="' . $bookId . '">
                       <button type="submit" class="btn btn-danger" name="delete_user">Delete</button>
                   </form>
                 </td>';

@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <select name="user" id="user">
         <?php
         foreach ($_SESSION['UserList'] as $user) {
-            print_r($user);
             echo '<option value="' . $user->getUserId() . '">' . $user->getUserName() . ' ' . $user->getUserLastName() . '</option>';
         }
         ?>
@@ -31,8 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <select name="book" id="book">
         <?php
         foreach ($_SESSION['bookList'] as $book) {
-            print_r($user);
-            echo '<option value="' . $book->isbn . '">' . $book->title . '</option>';
+            if ($book->userBorrowing === null) {
+              echo '<option value="' . $book->isbn . '">' . $book->title . '</option>';
+            }
         }
         ?>
       </select>
